@@ -292,7 +292,7 @@ if __name__ == "__main__":
         平均処理時間は3分
       """
       super(QueueSim2, self).__init__()
-      self.qs.append(QueueModel(service_time_algorithm='r', average_service_time=3*60))
+      self.qs.append(QueueModel(service_time_algorithm='e', average_service_time=3*60))
 
     def next_arrival(self, t):
       """
