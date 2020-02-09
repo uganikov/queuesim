@@ -86,7 +86,6 @@ class QueueModel():
       到着した顧客に必要なサービス時間を計算し、キューに投入する
     """
     out = 0
-    self.update_stat(t)
     # カウンターにいて、必要サービス時間が経過した顧客は系外に出る
     while len(self.counter_list) and self.counter_list[0] < t:
       self.counter_list.pop(0)
@@ -188,6 +187,8 @@ class Simulation():
     Notes:
       一単位時間の処理をシミュレートする
     """
+    for q  in self.qs:
+      q.update_stat(t)
     # モデルでの処理
     # モデルのリストを先頭から一単位時間進めて行く
     next_ev = float('inf')
@@ -223,7 +224,6 @@ class Simulation():
         arrival = self.next_arrival(arrival)
       next_ev = min(next_ev, arrival)
       tick = int(next_ev) + 1
-#      tick += 1
     self.tick(self.totalTime)
 
     #結果の出力（平均系内客数，平均待ち客数）
