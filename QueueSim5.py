@@ -60,6 +60,8 @@ class QueueSim5(Simulation):
     Notes:
       モデル間の配送が特殊なためオーバーライド
     """
+    for q  in self.qs:
+      q.update_stat(tick)
     # モデルでの処理
     next_ev = float('inf')
     for i, q  in enumerate(self.qs):
