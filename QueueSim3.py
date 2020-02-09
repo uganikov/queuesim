@@ -16,7 +16,7 @@ class QueueSim3(Simulation):
       窓口数は4
     """
     super(QueueSim3, self).__init__()
-    self.qs.append(QueueModel(num_counters = 4,
+    self.qs.append(QueueModel(num_counters = 1,
                  service_time_algorithm = 'e',
                  average_service_time = 2*60)) # モデルのインスタンス
 
